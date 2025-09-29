@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  // Use default file tracing root to avoid double-prefix path issues on Vercel
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {

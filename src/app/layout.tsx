@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="np-theme-personal np-theme-personal--forest-green">
       <body className="antialiased">
         <ErrorReporter />
         <Script

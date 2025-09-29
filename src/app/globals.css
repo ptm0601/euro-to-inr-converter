@@ -129,6 +129,34 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    /* Green family background like the reference */
+    background-image:
+      radial-gradient(1200px 500px at 12% -10%, #e7f6e9 0%, rgba(231,246,233,0) 55%),
+      radial-gradient(1000px 520px at 88% 0%, #dff1e3 0%, rgba(223,241,227,0) 50%),
+      linear-gradient(180deg, #eaf7ec 0%, #d8eddc 35%, #cfe7d3 100%);
+    background-attachment: fixed, fixed, fixed;
+  }
+  /* Forest green theme hook */
+  .np-theme-personal--forest-green body {
+    background-image:
+      radial-gradient(1200px 500px at 12% -10%, #e6f5ea 0%, rgba(230,245,234,0) 55%),
+      radial-gradient(1000px 520px at 88% 0%, #d9efdf 0%, rgba(217,239,223,0) 50%),
+      linear-gradient(180deg, #dff3e4 0%, #cbe8d3 35%, #bfe0c8 100%);
+  }
+  .dark .np-theme-personal--forest-green body,
+  .np-theme-personal--forest-green.dark body {
+    background-image:
+      radial-gradient(1000px 420px at 12% -10%, rgba(20,60,34,0.6) 0%, rgba(20,60,34,0) 55%),
+      radial-gradient(900px 420px at 88% 0%, rgba(12,42,26,0.5) 0%, rgba(12,42,26,0) 50%),
+      linear-gradient(180deg, #0e1a11 0%, #112112 40%, #0f1e12 100%);
+  }
+  .dark body {
+    /* Deeper green gradient for dark mode */
+    background-image:
+      radial-gradient(1000px 420px at 12% -10%, rgba(25,64,37,0.55) 0%, rgba(25,64,37,0) 55%),
+      radial-gradient(900px 420px at 88% 0%, rgba(16,47,30,0.5) 0%, rgba(16,47,30,0) 50%),
+      linear-gradient(180deg, #0f1d12 0%, #122314 40%, #102012 100%);
+    background-attachment: fixed, fixed, fixed;
   }
 }
 

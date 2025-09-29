@@ -134,7 +134,7 @@ export default function Home() {
       </Button>
 
       <div className="w-full max-w-xl">
-        <Card className="rounded-[32px] shadow-sm border border-transparent bg-[var(--accent)] dark:bg-[var(--accent)]/40">
+        <Card className="rounded-[32px] shadow-sm border border-transparent bg-[var(--card)]">
           <CardContent className="p-6 sm:p-8 space-y-6">
             {rate && (
               <div className="text-center text-sm text-[var(--muted-foreground)]">

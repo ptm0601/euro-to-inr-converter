@@ -14,8 +14,8 @@ import {
 import { ArrowLeftRight, Moon, Sun } from "lucide-react";
 
 export default function Home() {
-  const [fromCurrency, setFromCurrency] = useState<"EUR" | "INR">("EUR");
-  const [toCurrency, setToCurrency] = useState<"EUR" | "INR">("INR");
+  const [fromCurrency, setFromCurrency] = useState<"EUR" | "INR" | "GBP">("EUR");
+  const [toCurrency, setToCurrency] = useState<"EUR" | "INR" | "GBP">("INR");
   const [amount, setAmount] = useState<string>("1");
   const [result, setResult] = useState<string>("");
   const [rate, setRate] = useState<number | null>(null);
@@ -23,10 +23,12 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  const currencyToMeta = (code: "EUR" | "INR") => {
+  const currencyToMeta = (code: "EUR" | "INR" | "GBP") => {
     switch (code) {
       case "INR":
         return { code: "INR" as const, icon: "/inr.svg", label: "INR" };
+      case "GBP":
+        return { code: "GBP" as const, icon: "/gbp.svg", label: "GBP" };
       case "EUR":
       default:
         return { code: "EUR" as const, icon: "/eur.svg", label: "EUR" };
@@ -140,7 +142,7 @@ export default function Home() {
               <div className="text-center text-sm text-[var(--muted-foreground)]">
                 <div className="font-medium">Mid-market exchange rate</div>
                 <div className="mt-1">
-                  {fromCurrency === "INR" ? "₹" : "€"}1 {fromCurrency} = {new Intl.NumberFormat(undefined, { maximumFractionDigits: 6 }).format(rate)} {toCurrency}
+                  {(fromCurrency === "INR" && "₹") || (fromCurrency === "EUR" && "€") || (fromCurrency === "GBP" && "£") || ""}1 {fromCurrency} = {new Intl.NumberFormat(undefined, { maximumFractionDigits: 6 }).format(rate)} {toCurrency}
                 </div>
               </div>
             )}
@@ -173,6 +175,12 @@ export default function Home() {
                       <span className="flex items-center gap-2">
                         <img src="/inr.svg" alt="INR" className="h-4 w-4 rounded-full" />
                         <span>INR</span>
+                      </span>
+                    </SelectItem>
+                    <SelectItem value="GBP">
+                      <span className="flex items-center gap-2">
+                        <img src="/gbp.svg" alt="GBP" className="h-4 w-4 rounded-full" />
+                        <span>GBP</span>
                       </span>
                     </SelectItem>
                     <SelectItem value="EUR">
@@ -225,6 +233,12 @@ export default function Home() {
                       <span className="flex items-center gap-2">
                         <img src="/inr.svg" alt="INR" className="h-4 w-4 rounded-full" />
                         <span>INR</span>
+                      </span>
+                    </SelectItem>
+                    <SelectItem value="GBP">
+                      <span className="flex items-center gap-2">
+                        <img src="/gbp.svg" alt="GBP" className="h-4 w-4 rounded-full" />
+                        <span>GBP</span>
                       </span>
                     </SelectItem>
                   </SelectContent>
